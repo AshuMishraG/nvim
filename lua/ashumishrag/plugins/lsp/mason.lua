@@ -30,7 +30,7 @@ return {
 			-- list of servers for mason to install
 			ensure_installed = {
 				-- Web Development
-				"ts_ls", -- TypeScript/JavaScript
+				"tsserver", -- TypeScript/JavaScript
 				"html", -- HTML
 				"cssls", -- CSS
 				"tailwindcss", -- TailwindCSS
@@ -71,6 +71,7 @@ return {
 				-- Terraform
 				"terraformls", -- Terraform
 			},
+			automatic_installation = true, -- Automatically install servers
 		})
 
 		-- configure mason-tool-installer
