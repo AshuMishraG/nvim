@@ -184,6 +184,25 @@ return {
 					},
 				})
 			end,
+			["eslint"] = function()
+				-- configure eslint server
+				lspconfig["eslint"].setup({
+					capabilities = capabilities,
+					settings = {
+						workingDirectory = { mode = "auto" },
+						codeAction = {
+							disableRuleComment = {
+								enable = true,
+								location = "separateLine",
+							},
+							showDocumentation = {
+								enable = true,
+							},
+						},
+					},
+					root_dir = lspconfig.util.root_pattern(".git", "package.json", ".eslintrc.js", "eslint.config.js"),
+				})
+			end,
 		})
 	end,
 }
