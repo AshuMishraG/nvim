@@ -118,6 +118,7 @@ return {
 						"typescriptreact",
 						"javascriptreact",
 						"css",
+						"tailwindcss",
 						"sass",
 						"scss",
 						"less",
@@ -201,6 +202,39 @@ return {
 						},
 					},
 					root_dir = lspconfig.util.root_pattern(".git", "package.json", ".eslintrc.js", "eslint.config.js"),
+				})
+			end,
+			["cssls"] = function()
+				lspconfig["cssls"].setup({
+					capabilities = capabilities,
+					settings = {
+						css = {
+							validate = true,
+							lint = {
+								unknownAtRules = "ignore",
+							},
+						},
+					},
+				})
+			end,
+			["tailwindcss"] = function()
+				lspconfig["tailwindcss"].setup({
+					capabilities = capabilities,
+					filetypes = {
+						"html",
+						"css",
+						"scss",
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact",
+					},
+					init_options = {
+						userLanguages = {
+							eelixir = "html-eex",
+							eruby = "erb",
+						},
+					},
 				})
 			end,
 		})
